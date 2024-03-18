@@ -1,3 +1,5 @@
+![image](https://github.com/SAslan8006/Redux/assets/109723263/560b4ad6-1fe0-476c-a7a0-df7eb716abff)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
