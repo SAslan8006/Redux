@@ -1,0 +1,72 @@
+input {
+  width: 800px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  margin-top: 55px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.card {
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  padding: 15px;
+  border-color: black;
+  border: 29px;
+  display: table-cell;
+}
+
+.all-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+.button-div {
+  order: 1;
+}
+.eklebuton {
+  order: 2;
+}
+body {
+  background-color: #eaeaea;
+}
+
+.notcard {
+  margin: 3rem auto;
+  background-color: #D6D7DB;
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap:1rem;
+
+}
+@media screen and (max-width: 1200px) {
+  .notcard {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+}
+
+@media screen and (max-width: 700px) {
+  .notcard {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+}
+@media screen and (max-width: 500px) {
+  .notcard {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+}
+
+@media screen and (max-width: 400px) {
+  .notcard {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+}
