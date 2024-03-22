@@ -8,13 +8,14 @@
 
 ### 4. Redux toolkit içerisinde bir store olusturuldu. Store'da reducerler eklendi.
 
-`
-import { configureStore } from '@reduxjs/toolkit'
+```js
+import { configureStore } from "@reduxjs/toolkit";
 
 export const store = configureStore({
-reducer: {},
-})
-`
+  reducer: {},
+});
+```
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
