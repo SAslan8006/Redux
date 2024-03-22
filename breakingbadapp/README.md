@@ -8,7 +8,7 @@
 
 ### 4. Redux toolkit içerisinde bir store olusturuldu. Store'da reducerler eklendi.
 
-`js
+`
 import { configureStore } from '@reduxjs/toolkit'
 
 export const store = configureStore({
