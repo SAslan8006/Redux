@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Getting Started with Create Breaking Bad React App
 
 ### 1. React oluşturuldu : npx create-react-app breakingbadapp
 
