@@ -7,13 +7,11 @@ import Loading from '../../components/Loading';
 import Error from './../../components/Error';
 
 function Home() {
-    const { items, isLoading, error } = useSelector(state => state.characters);
+    const { items, isLoading, error, nextPage } = useSelector(state => state.characters);
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getAllCharacters())
     }, [dispatch])
-    console.log(items.results)
-    console.log(items.info)
 
     return (
         <div>
@@ -32,7 +30,9 @@ function Home() {
                     </div>
                 )}
             </Masonry>
-
+            <div style={{ padding: "20px 0 40px 0", textAlign: "center" }}>
+                <button onClick={() => dispatch(getAllCharacters(nextPage))}>Load More ({nextPage})</button>
+            </div>
         </div>
     )
 }

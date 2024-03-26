@@ -7,6 +7,7 @@ export const charactersSlice = createSlice({
         items: [],
         isLoading: false,
         error: null,
+        nextPage: 0,
     },
     reducers: {
 
@@ -19,6 +20,7 @@ export const charactersSlice = createSlice({
             .addCase(getAllCharacters.fulfilled, (state, action) => {
                 state.items = action.payload; // FulFilled durumu olumlu durumunda items'a veri atıyor
                 state.isLoading = false; // loading false yapıyor
+                state.nextPage += 1;
             })
             .addCase(getAllCharacters.rejected, (state, action) => {
                 state.isLoading = false; // rejected Durumunda loading false yapıyor
