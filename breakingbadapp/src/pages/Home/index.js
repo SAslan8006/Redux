@@ -30,7 +30,7 @@ function Home() {
                 )}
             </Masonry>
             {isLoading && <Loading />}
-            {!nextPageLink && <div style={{ padding: "20px 0 40px 0", textAlign: "center" }}>Gösterilecek sayfa kalmamıştır...</div>}
+            {!nextPageLink && <div style={{ padding: "20px 0 40px 0", textAlign: "center" }}>There is nothing to be shown...</div>}
             <div style={{ padding: "20px 0 40px 0", textAlign: "center" }}>
                 {nextPageLink && !isLoading && <button onClick={() => dispatch(getAllCharacters(nextPage))}>Load More... ({nextPage - 1} / {tpages})</button>}
             </div>
