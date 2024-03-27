@@ -6,33 +6,38 @@ import Masonry from 'react-masonry-css';
 import Loading from '../../components/Loading';
 import Error from './../../components/Error';
 
+import { Link } from 'react-router-dom';
 function Home() {
-    const { items, isLoading, error, nextPage, nextPageLink, tpages, count, prevPageLink } = useSelector(state => state.characters);
+    const { items, status, error, nextPage, nextPageLink, tpages } = useSelector(state => state.characters);
     console.log("nextPage:", nextPage)
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(getAllCharacters())
-    }, [dispatch])
+        if (status === "idle") {
+            dispatch(getAllCharacters())
+        }
+    }, [dispatch, status])
 
     return (
         <div>
             <h1>Characters</h1>
-            {error && <Error message={error} />}
+            {status === "failed" && <Error message={error} />}
             <Masonry
                 breakpointCols={4}
                 className="my-masonry-grid"
                 columnClassName="my-masonry-grid_column">
                 {items && items.map((character) =>
                     <div key={character.id}>
-                        <img alt={character.name} src={character.image} className='character' />
-                        <div className='character_name'>{character.name}</div>
+                        <Link to={`/char/${character.id}`}>
+                            <img alt={character.name} src={character.image} className='character' />
+                            <div className='character_name'>{character.name}</div>
+                        </Link>
                     </div>
                 )}
             </Masonry>
-            {isLoading && <Loading />}
+            {status === "loading" && <Loading />}
             {!nextPageLink && <div style={{ padding: "20px 0 40px 0", textAlign: "center" }}>There is nothing to be shown...</div>}
             <div style={{ padding: "20px 0 40px 0", textAlign: "center" }}>
-                {nextPageLink && !isLoading && <button onClick={() => dispatch(getAllCharacters(nextPage))}>Load More... ({nextPage - 1} / {tpages})</button>}
+                {nextPageLink && status && <button onClick={() => dispatch(getAllCharacters(nextPage))}>Load More... ({nextPage - 1} / {tpages})</button>}
             </div>
         </div>
     )

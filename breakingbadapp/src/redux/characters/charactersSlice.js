@@ -5,7 +5,7 @@ export const charactersSlice = createSlice({
     name: "characters",
     initialState: {
         items: [],
-        isLoading: false,
+        status: "idle",
         error: null,
         nextPage: 1,
         count: 0,
@@ -20,7 +20,7 @@ export const charactersSlice = createSlice({
     extraReducers(builder) {
         builder
             .addCase(getAllCharacters.pending, (state) => {
-                state.isLoading = true; //Pending yani bekleme durumunda loadin true haline getiriyor
+                state.status = "loading"; //Pending yani bekleme durumunda loadin true haline getiriyor
             })
             .addCase(getAllCharacters.fulfilled, (state, action) => {
                 state.items = [...state.items, ...action.payload.results];
@@ -29,11 +29,11 @@ export const charactersSlice = createSlice({
                 state.nextPageLink = action.payload.info.next;
                 state.nextPage += 1;
                 console.log(action.payload); // FulFilled durumu olumlu durumunda items'a veri atıyor
-                state.isLoading = false; // loading false yapıyor
+                state.status = "succeeded"; // loading false yapıyor
 
             })
             .addCase(getAllCharacters.rejected, (state, action) => {
-                state.isLoading = false; // rejected Durumunda loading false yapıyor
+                state.status = "failed"; // rejected Durumunda loading false yapıyor
                 state.error = action.error.message; // rejected durumunda hata mesajı atıyor
             })
     }
