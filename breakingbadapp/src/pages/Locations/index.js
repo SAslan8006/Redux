@@ -1,21 +1,19 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { getAllCharacters } from '../../redux/services';
-import './styles.css';
 import Masonry from 'react-masonry-css';
+import { getAllLocation } from '../../redux/services';
+import Error from '../../components/Error';
 import Loading from '../../components/Loading';
-import Error from './../../components/Error';
-
 import { Link } from 'react-router-dom';
-function Home() {
-    const { items, status, error, nextPage, nextPageLink, tpages } = useSelector(state => state.characters);
+
+function Location() {
+    const { items, status, error, nextPage, nextPageLink, tpages } = useSelector(state => state.locations);
     const dispatch = useDispatch()
     useEffect(() => {
         if (status === "idle") {
-            dispatch(getAllCharacters())
+            dispatch(getAllLocation())
         }
     }, [dispatch, status])
-
     return (
         <div>
             <h1>Characters</h1>
@@ -26,9 +24,10 @@ function Home() {
                 columnClassName="my-masonry-grid_column">
                 {items && items.map((character) =>
                     <div key={character.id}>
-                        <Link to={`/char/${character.id}`}>
-                            <img alt={character.name} src={character.image} className='character' />
+                        <Link to={`/location/${character.id}`}>
+                            <div className='character_name'>{character.dimension}</div>
                             <div className='character_name'>{character.name}</div>
+                            <div className='character_name'>{character.type}</div>
                         </Link>
                     </div>
                 )}
@@ -36,10 +35,10 @@ function Home() {
             {status === "loading" && <Loading />}
             {!nextPageLink && <div style={{ padding: "20px 0 40px 0", textAlign: "center" }}>There is nothing to be shown...</div>}
             <div style={{ padding: "20px 0 40px 0", textAlign: "center" }}>
-                {nextPageLink && status && <button onClick={() => dispatch(getAllCharacters(nextPage))}>Load More... ({nextPage - 1} / {tpages})</button>}
+                {nextPageLink && status && <button onClick={() => dispatch(getAllLocation(nextPage))}>Load More... ({nextPage - 1} / {tpages})</button>}
             </div>
         </div>
     )
 }
 
-export default Home
+export default Location
