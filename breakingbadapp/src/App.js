@@ -3,9 +3,12 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 //Pages
 import Home from './pages/Home';
-import Detail from './pages/Detail';
+import CharactersDetail from './pages/CharactersDetail';
 import Locations from './pages/Locations';
 import Episode from './pages/Episode';
+import LocationDetail from './pages/LocationsDetail';
+import EpisodeDetail from './pages/EpisodeDetail';
+
 
 function App() {
   return (
@@ -25,7 +28,9 @@ function App() {
       </nav>
       <Routes>
         <Route path="/" exact Component={Home} />
-        <Route path="/char/:char_id" exact Component={Detail} />
+        <Route path="/char/:char_id" exact Component={CharactersDetail} />
+        <Route path="/location/:locations_id" exact Component={LocationDetail} />
+        <Route path="/episodes/:episodes_id" exact Component={EpisodeDetail} />
         <Route path="/locations" exact Component={Locations} />
         <Route path="/episode" exact Component={Episode} />
         {/* <Route path="/" exact element={<div>Home</div>} /> */}
