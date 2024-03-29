@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
-import { addContact, addContacts } from '../../redux/contactsSlice';
+import { addContacts } from '../../redux/contactsSlice';
 
 function Form() {
     const [name, setName] = useState("");
@@ -21,7 +21,6 @@ function Form() {
         <div>
             <form onSubmit={handleSubmit}>
                 <input placeholder="Ad Giriniz" value={name} onChange={(e) => setName(e.target.value)} />
-                <button>Submit</button>
             </form>
         </div>
     )
