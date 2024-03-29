@@ -1,22 +1,24 @@
-import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
+import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
 
-export const conctactAdaptor = createEntityAdapter();
-const initialState = conctactAdaptor.getInitialState();
+export const contactAdaptor = createEntityAdapter()
+const initialState = contactAdaptor.getInitialState()
 
-export const contactSelectors = conctactAdaptor.getSelectors(state => state.contacts)
+export const contactSelectors = contactAdaptor.getSelectors((state) => state.contacts)
 
-const contactSlice = createSlice({
-    name: "contacts",
-    initialState,
+export const contactSlice = createSlice({
+    name: 'contacts',
     reducers: {
-        addContact: conctactAdaptor.addOne,
-        addContacts: conctactAdaptor.addMany,
+        addContact: contactAdaptor.addOne,
+        addContacts: contactAdaptor.addMany,
+        deleteContact: contactAdaptor.removeOne,
+        removeAllContacts: contactAdaptor.removeAll,
+        updateContact: contactAdaptor.updateOne,
     },
-});
+    initialState,
+})
 
-
-export const { addContact, addContacts } = contactSlice.actions;
-export default contactSlice.reducer;
+export const { addContact, addContacts, deleteContact, removeAllContacts, updateContact } = contactSlice.actions
+export default contactSlice.reducer
 
 //Perfomance and Normalizing Data
 // const userId = 'user2'

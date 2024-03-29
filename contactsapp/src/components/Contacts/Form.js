@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
-import { addContact } from '../../redux/contactsSlice';
+import { addContact } from '../../redux/contactSlice';
 
 function Form() {
     const [name, setName] = useState("");
@@ -15,7 +15,7 @@ function Form() {
         // names.forEach((name) => dispatch(addContact({ id: nanoid(), name })))
         // dispatch(addContacts(data))
 
-        dispatch(addContact({ id: nanoid(), name, phone_number: number }))
+        dispatch(addContact({ id: nanoid(), name, phoneNumber: number }))
 
         setName("");
         setNumber("");
