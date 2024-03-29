@@ -2,9 +2,12 @@ import React from 'react'
 
 function Item({ item }) {
     return (
-        <div>
-            <div key={item.id}>{item.name}</div>
-        </div>
+        <li>
+            <h1>
+                <span>{item.name} </span>
+                <span>{item.phone_number}</span>
+            </h1>
+        </li>
     )
 }
 

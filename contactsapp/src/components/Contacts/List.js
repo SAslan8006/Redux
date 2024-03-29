@@ -8,9 +8,11 @@ function List() {
     return (
         <div>
             <div>Total contacts: {total}</div>
-            {contacts.map((contact) => (
-                <Item key={contact.id} item={contact} />
-            ))}
+            <ul className='list'>
+                {contacts.map((contact) => (
+                    <Item key={contact.id} item={contact} />
+                ))}
+            </ul>
         </div>
     )
 }
