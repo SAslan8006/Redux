@@ -36,39 +36,37 @@ Cassandra belgelerinde veritabanı oluşturma, veri ekleme ve sorgulama işlemle
 
 ## Key-value Type
 
+Cassandra API kullanarak belge koleksiyonu oluşturma, belge ekleme ve belgeleri arama işlemleri detaylıca anlatıldı.
+
 ## Graph Type
+
+Veritabanı oluşturma ve veri ekleme işlemleri Graph QL ile adım adım gösterilmiştir. Graph veritabanları, ilişkisel verileri düğümler arasındaki kenarlarla temsil eder.
 
 ## Multi-model Type explained
 
+Video scriptinde veritabanı oluşturma, bağlantı kurma, graf oluşturma ve veri ekleme adımları detaylıca anlatılmıştır.
+
 ## Project 1
 
+Express ve diğer paketler kullanılarak veri tabanına veri eklemek ve bu verileri kullanarak bir proje oluşturmak için bir mini backend oluşturuldu.
+
 ## Project 2
+
+Sunucu tarafında veri alma ve işleme adımları anlatılmıştır. Ayrıca, istemci tarafında sunucudan veri çekme işlemi gösterilmiştir.
 
 # Where to go next
 
 ## Mongodb
 
+Front-end projesinde veri almak için Axios paketi kullanılarak GET isteği yapılmış ve gelen veriler dizi nesnelere dönüştürülerek tarayıcı arayüzünde gösterilmiştir.
+
 ## Mongodb
+
+GraphQL API kullanarak otel uygulaması oluşturuldu. Veritabanı oluşturuldu, veri eklemesi yapıldı ve veri çekmek için sorgu oluşturuldu.
 
 # Mingo
 
 ## Mingo
 
-45:32
-Cassandra API kullanarak belge koleksiyonu oluşturma, belge ekleme ve belgeleri arama işlemleri detaylıca anlatıldı.
-1:00:43
-Veritabanı oluşturma ve veri ekleme işlemleri Graph QL ile adım adım gösterilmiştir. Graph veritabanları, ilişkisel verileri düğümler arasındaki kenarlarla temsil eder.
-1:15:56
-Video scriptinde veritabanı oluşturma, bağlantı kurma, graf oluşturma ve veri ekleme adımları detaylıca anlatılmıştır.
-1:31:09
-Express ve diğer paketler kullanılarak veri tabanına veri eklemek ve bu verileri kullanarak bir proje oluşturmak için bir mini backend oluşturuldu.
-1:46:23
-Sunucu tarafında veri alma ve işleme adımları anlatılmıştır. Ayrıca, istemci tarafında sunucudan veri çekme işlemi gösterilmiştir.
-2:02:12
-Front-end projesinde veri almak için Axios paketi kullanılarak GET isteği yapılmış ve gelen veriler dizi nesnelere dönüştürülerek tarayıcı arayüzünde gösterilmiştir.
-2:25:34
-GraphQL API kullanarak otel uygulaması oluşturuldu. Veritabanı oluşturuldu, veri eklemesi yapıldı ve veri çekmek için sorgu oluşturuldu.
-2:32:01
-Netlify sunucusuz işlevler kullanarak ilk sunucusuz işlevin oluşturulması gösteriliyor. Netlify CLI'nin yüklenmesi ve sunucu işlevi oluşturma adımları detaylıca açıklanıyor.
-2:47:10
 useState ve useEffect hook'ları kullanarak yanıtı state'e kaydedip veriyi ekranda göstermek önemlidir. Sonrasında, map fonksiyonu ile veriyi işleyip CSS ile görünüm düzenlenmelidir.
+Netlify sunucusuz işlevler kullanarak ilk sunucusuz işlevin oluşturulması gösteriliyor. Netlify CLI'nin yüklenmesi ve sunucu işlevi oluşturma adımları detaylıca açıklanıyor.
