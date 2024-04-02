@@ -6,62 +6,105 @@ show dbs
 ```
 
 Mevcut Veri Tabanını Göster
-db
+
+```js
+db;
+```
+
 Veri Tabanı Oluştur veya Değiştir
+
+```js
 use acme
+```
+
 Mevcut Veri Tabanını Sil
-db.dropDatabase()
+
+```js
+db.dropDatabase();
+```
+
 Yeni Tablo Oluştur
-db.createCollection('posts')
+
+```js
+db.createCollection("posts");
+```
+
 Veri Tabanındaki Tabloları Göster
+
+```js
 show collections
+```
+
 Veri Ekle
+
+```js
 db.posts.insert({
-title: 'Post One',
-body: 'Body of post one',
-category: 'News',
-tags: ['news', 'events'],
-user: {
-name: 'John Doe',
-status: 'author'
-},
-date: Date()
-})
+  title: "Post One",
+  body: "Body of post one",
+  category: "News",
+  tags: ["news", "events"],
+  user: {
+    name: "John Doe",
+    status: "author",
+  },
+  date: Date(),
+});
+```
+
 Birden Fazla Veri Ekle
+
+```js
 db.posts.insertMany([
-{
-title: 'Post Two',
-body: 'Body of post two',
-category: 'Technology',
-date: Date()
-},
-{
-title: 'Post Three',
-body: 'Body of post three',
-category: 'News',
-date: Date()
-},
-{
-title: 'Post Four',
-body: 'Body of post three',
-category: 'Entertainment',
-date: Date()
-}
-])
+  {
+    title: "Post Two",
+    body: "Body of post two",
+    category: "Technology",
+    date: Date(),
+  },
+  {
+    title: "Post Three",
+    body: "Body of post three",
+    category: "News",
+    date: Date(),
+  },
+  {
+    title: "Post Four",
+    body: "Body of post three",
+    category: "Entertainment",
+    date: Date(),
+  },
+]);
+```
+
 Tüm Verileri Getir
-db.posts.find()
+
+```js
+db.posts.find();
+```
+
 Tüm Verileri Düzenli Halde Getir
-db.posts.find().pretty()
+
+```js
+db.posts.find().pretty();
+```
+
 Verileri Bul
-db.posts.find({ category: 'News' })
+
+```js
+db.posts.find({ category: "News" });
+```
+
 Verileri Sırala
 
 # asc
 
-db.posts.find().sort({ title: 1 }).pretty()
+```js
+db.posts.find().sort({ title: 1 }).pretty();
+```
 
 # desc
 
+```js
 db.posts.find().sort({ title: -1 }).pretty()
 Verileri Say
 db.posts.find().count()
@@ -74,24 +117,45 @@ Foreach
 db.posts.find().forEach(function(doc) {
 print("Blog Post: " + doc.title)
 })
+```
+
 Bir Tane Veri Bul
-db.posts.findOne({ category: 'News' })
+
+```js
+db.posts.findOne({ category: "News" });
+```
+
 Belirli Alanları Bul
-db.posts.find({ title: 'Post One' }, {
-title: 1,
-author: 1
-})
+
+```js
+db.posts.find(
+  { title: "Post One" },
+  {
+    title: 1,
+    author: 1,
+  }
+);
+```
+
 Satırları Güncelle
-db.posts.update({ title: 'Post Two' },
-{
-title: 'Post Two',
-body: 'New body for post 2',
-date: Date()
-},
-{
-upsert: true
-})
+
+```js
+db.posts.update(
+  { title: "Post Two" },
+  {
+    title: "Post Two",
+    body: "New body for post 2",
+    date: Date(),
+  },
+  {
+    upsert: true,
+  }
+);
+```
+
 Belirli Alanı Güncelle
+
+```js
 db.posts.update({ title: 'Post Two' },
 {
 $set: {
@@ -106,52 +170,85 @@ $inc: {
     likes: 5
   }
 })
+```
+
 Alanı Yeniden Adlandır
-db.posts.update({ title: 'Post Two' },
-{
-  $rename: {
-    likes: 'views'
+
+```js
+db.posts.update(
+  { title: "Post Two" },
+  {
+    $rename: {
+      likes: "views",
+    },
   }
-})
+);
+```
+
 Satırı Sil
-db.posts.remove({ title: 'Post Four' })
+
+```js
+db.posts.remove({ title: "Post Four" });
+```
+
 Alt Belgeler
-db.posts.update({ title: 'Post One' },
-{
-  $set: {
-    comments: [
-      {
-        body: 'Comment One',
-        user: 'Mary Williams',
-        date: Date()
-      },
-      {
-        body: 'Comment Two',
-        user: 'Harry White',
-        date: Date()
-      }
-    ]
+
+```js
+db.posts.update(
+  { title: "Post One" },
+  {
+    $set: {
+      comments: [
+        {
+          body: "Comment One",
+          user: "Mary Williams",
+          date: Date(),
+        },
+        {
+          body: "Comment Two",
+          user: "Harry White",
+          date: Date(),
+        },
+      ],
+    },
   }
-})
+);
+```
+
 Dizideki Öğeye Göre Bul ($elemMatch)
+
+```js
 db.posts.find({
-comments: {
-$elemMatch: {
-user: 'Mary Williams'
-}
-}
-}
-)
+  comments: {
+    $elemMatch: {
+      user: "Mary Williams",
+    },
+  },
+});
+```
+
 Index Ekle
-db.posts.createIndex({ title: 'text' })
+
+```js
+db.posts.createIndex({ title: "text" });
+```
+
 Metin Ara
+
+```js
 db.posts.find({
-$text: {
-$search: "\"Post O\""
-}
-})
+  $text: {
+    $search: '"Post O"',
+  },
+});
+```
+
 Büyük veya Küçük
+
+````js
 db.posts.find({ views: { $gt: 2 } })
 db.posts.find({ views: { $gte: 7 } })
 db.posts.find({ views: { $lt: 7 } })
 db.posts.find({ views: { $lte: 7 } })
+```js
+````
