@@ -105,18 +105,34 @@ db.posts.find().sort({ title: 1 }).pretty();
 # desc
 
 ```js
-db.posts.find().sort({ title: -1 }).pretty()
+db.posts.find().sort({ title: -1 }).pretty();
+```
+
 Verileri Say
-db.posts.find().count()
-db.posts.find({ category: 'news' }).count()
+
+```js
+db.posts.find().count();
+db.posts.find({ category: "news" }).count();
+```
+
 Verileri Sınırla
-db.posts.find().limit(2).pretty()
+
+```js
+db.posts.find().limit(2).pretty();
+```
+
 Chaining
-db.posts.find().limit(2).sort({ title: 1 }).pretty()
+
+```js
+db.posts.find().limit(2).sort({ title: 1 }).pretty();
+```
+
 Foreach
-db.posts.find().forEach(function(doc) {
-print("Blog Post: " + doc.title)
-})
+
+```js
+db.posts.find().forEach(function (doc) {
+  print("Blog Post: " + doc.title);
+});
 ```
 
 Bir Tane Veri Bul
@@ -156,20 +172,28 @@ db.posts.update(
 Belirli Alanı Güncelle
 
 ```js
-db.posts.update({ title: 'Post Two' },
-{
-$set: {
-    body: 'Body for post 2',
-    category: 'Technology'
+db.posts.update(
+  { title: "Post Two" },
+  {
+    $set: {
+      body: "Body for post 2",
+      category: "Technology",
+    },
   }
-})
+);
+```
+
 Alanı Arttırma ($inc)
-db.posts.update({ title: 'Post Two' },
-{
-$inc: {
-    likes: 5
+
+```js
+db.posts.update(
+  { title: "Post Two" },
+  {
+    $inc: {
+      likes: 5,
+    },
   }
-})
+);
 ```
 
 Alanı Yeniden Adlandır
