@@ -32,6 +32,8 @@ PRIMARY KEY (country, name, url) ) WITH CLUSTERING ORDER BY (name DESC, url ASC)
 
 ## Document Type
 
+Casandra Nosql mantığı ile çalışan bir veri tabanıdır...
+
 Cassandra belgelerinde veritabanı oluşturma, veri ekleme ve sorgulama işlemleri anlatılmıştır. Tablo yerine koleksiyonlar kullanılmıştır.
 
 ## Key-value Type
