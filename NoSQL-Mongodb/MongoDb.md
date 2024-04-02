@@ -1,6 +1,10 @@
 MongoDB Cheat Sheet  
-Tüm Veri Tabanını Göster  
-`show dbs`
+Tüm Veri Tabanını Göster
+
+```js
+show dbs
+```
+
 Mevcut Veri Tabanını Göster
 db
 Veri Tabanı Oluştur veya Değiştir
