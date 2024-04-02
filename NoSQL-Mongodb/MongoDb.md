@@ -1,5 +1,5 @@
-MongoDB Cheat Sheet
-Tüm Veri Tabanını Göster
+MongoDB Cheat Sheet  
+Tüm Veri Tabanını Göster  
 `show dbs`
 Mevcut Veri Tabanını Göster
 db
